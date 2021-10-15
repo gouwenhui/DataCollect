@@ -1,5 +1,5 @@
 #基础镜像
-FROM tomcat:jdk8-openjdk
+FROM tomcat:7.0.86
 
 #作者
 LABEL maintainer="xingdiango@163.com"
