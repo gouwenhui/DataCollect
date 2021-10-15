@@ -1,20 +1,20 @@
 #基础镜像
-FROM tomcat:7.0.86
+FROM tomcat:jdk8-openjdk
 
 #作者
-LABEL maintainer="zhangchx <njzcx@126.com>"
+LABEL maintainer="xingdiango@163.com"
 
 #运行安装telnet和nc
-RUN apt-get install -y telnet nc; exit 0
+RUN yum install -y telnet nc; exit 0
 
 #
-VOLUME ["/home/zhangchx/tomcat"]
+VOLUME ["/root/tomcat"]
 
 #TOMCAT环境变量
-ENV CATALINA_BASE:   /usr/local/tomcat \
-    CATALINA_HOME:   /usr/local/tomcat \
-    CATALINA_TMPDIR: /usr/local/tomcat/temp \
-    JRE_HOME:        /usr
+ENV CATALINA_BASE:   /opt/tomcat/apache-tomcat-8.0.36 \
+    CATALINA_HOME:   /opt/tomcat/apache-tomcat-8.0.36
+    CATALINA_TMPDIR: /opt/tomcat/apache-tomcat-8.0.36/temp \
+    JRE_HOME:        /usr/java/jdk1.8.0_161
 
 #启动入口
 ENTRYPOINT ["catalina.sh","run"]
